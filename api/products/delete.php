@@ -5,8 +5,9 @@
   header('Access-Control-Allow-Methods: DELETE');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, origin, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-  
-  include_once "../class/ProductsClass.php";
+  require "../../Controller/Product.php";
+  // include_once "../../Controller/Products.php";
+  use Controller\Product;
 
   //if request is a preflight Request return 0
 
@@ -29,7 +30,7 @@
 
   foreach($_POST->products as $p){
 
-    if(ProductsClass::deleteProducts($p)) {
+    if(Product::deleteProducts($p)) {
       array_push($data, 'Deleted: '. $p);
     } else {
       array_push($data, 'Delete Failed: '. $p);

@@ -1,8 +1,10 @@
 <?php 
+  namespace Model;
+  require '../../config/Database.php';
 
-  include_once '../class/Database.php';
+  use Database\Database;
 
-  class Product extends Database {
+  class ProductModel extends Database {
     //table name
     private $table = 'product';
     

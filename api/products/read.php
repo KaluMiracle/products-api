@@ -3,7 +3,10 @@
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
-  include_once "../class/ProductsClass.php";
+  require "../../Controller/Product.php";
+
+  // include_once "../../Controller/Product.php";
+  use Controller\Product;
 
   // initialize return values
   $statusCode = 201;
@@ -12,7 +15,7 @@
 
   //get Products from database
 
-  $result = ProductsClass::getProducts();
+  $result = Product::getProducts();
 
   // Get row count
   $num = mysqli_num_rows($result);

@@ -5,11 +5,12 @@
   header('Access-Control-Allow-Methods: POST');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-  include_once "../class/ProductsClass.php";
+  require "../../Controller/Product.php";
+  use Controller\Product;
 
-  //if request is a preflight request return 0
+  //if request is a preflight request end the execution
   if($_SERVER['REQUEST_METHOD'] === 'OPTIONS'){
-    return 0;
+    return;
   }
 
   $statusCode = 200;
@@ -22,7 +23,7 @@
   try{
     //instantiate ProductClass
 
-    $productClass = new ProductsClass(
+    $productClass = new Product(
       $_POST->sku,
       $_POST->category_id,
       $_POST->name,
