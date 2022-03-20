@@ -3,7 +3,7 @@
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
-  require "../../Controller/Product.php";
+  require '../../Controller/Product.php';
 
   // include_once "../../Controller/Product.php";
   use Controller\Product;

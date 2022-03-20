@@ -5,7 +5,7 @@
   header('Access-Control-Allow-Methods: DELETE');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, origin, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-  require "../../Controller/Product.php";
+  require '../../Controller/Product.php';
   // include_once "../../Controller/Products.php";
   use Controller\Product;
 

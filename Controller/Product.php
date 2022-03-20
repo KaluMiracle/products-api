@@ -1,7 +1,7 @@
 <?php
     namespace Controller;
 
-    require "../../Model/ProductModel.php";
+    require '../../Model/ProductModel.php';
 
     use Model\ProductModel;
 
