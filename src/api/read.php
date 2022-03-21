@@ -1,12 +1,18 @@
 <?php 
   // Headers
+
+require_once '../../vendor/autoload.php';
+
+
+// use Source\Product;
+
+
+
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
-  require '../../Controller/Product.php';
 
   // include_once "../../Controller/Product.php";
-  use Controller\Product;
 
   // initialize return values
   $statusCode = 201;
@@ -15,7 +21,7 @@
 
   //get Products from database
 
-  $result = Product::getProducts();
+  $result = Source\Controller\ProductController::getProducts();
 
   // Get row count
   $num = mysqli_num_rows($result);

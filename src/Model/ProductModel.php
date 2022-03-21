@@ -1,12 +1,11 @@
 <?php 
-  namespace Model;
-  require '../../config/Database.php';
+  namespace Source\Model;
 
-  use Database\Database;
+  use Source\Config\Database;
 
   class ProductModel extends Database {
     //table name
-    private $table = 'product';
+    protected $table = 'product';
     
     //contructor
 

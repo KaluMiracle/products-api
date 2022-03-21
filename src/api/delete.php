@@ -28,7 +28,7 @@
 
   // Delete products
 
-  foreach($_POST->products as $p){
+  foreach($_DATA->products as $p){
 
     if(Product::deleteProducts($p)) {
       array_push($data, 'Deleted: '. $p);
