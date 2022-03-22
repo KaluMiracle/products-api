@@ -1,19 +1,9 @@
 <?php 
   // Headers
-
-require_once '../../vendor/autoload.php';
-
-
-// use Source\Product;
-
-
-
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
-
-  // include_once "../../Controller/Product.php";
-
+  require_once '../../vendor/autoload.php';
   // initialize return values
   $statusCode = 201;
   $message = '';
@@ -58,8 +48,6 @@ require_once '../../vendor/autoload.php';
   }
 
   //return values
-
-
   echo json_encode(array(
       'status'  => $statusCode,
       'message' => $message,

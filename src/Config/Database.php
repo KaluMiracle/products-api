@@ -4,6 +4,7 @@
   use mysqli;
 
   //Get Database Details
+
   require __DIR__ .  '/dbCredentials.php';
 
   class Database {
@@ -12,9 +13,7 @@
     //connect to database
 
     public function __construct(){
-      // $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
-      $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
+      $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
     
       // Check connection
       if ($this->conn->connect_error) {

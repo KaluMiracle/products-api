@@ -2,7 +2,6 @@
   // Headers
   require_once '../../vendor/autoload.php';
 
-
   use Source\Controller\ProductController;
 
   header('Access-Control-Allow-Origin: *');
@@ -24,7 +23,7 @@
   $_DATA = json_decode(file_get_contents("php://input"));
 
   try{
-    //instantiate ProductClass
+    //instantiate ProductControllerClass
 
     $productClass = new ProductController(
       $_DATA->sku,

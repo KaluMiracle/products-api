@@ -3,7 +3,6 @@
 
     use Source\Model\FurnitureModel;
     use Source\Model\ProductModel;
-    
     class ProductController  {
         // Product Properties
         public $sku;
@@ -27,8 +26,6 @@
         }
 
         // function to store furniture in the database
-
-
         public function storeFurniture() {
             //instantiate Product model
 
@@ -79,8 +76,6 @@
                 $this->price,
             );
         } 
-        
-         
 
         //function to get products from database
 
