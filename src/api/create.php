@@ -1,15 +1,18 @@
 <?php 
   // Headers
+  require_once '../../vendor/autoload.php';
+
+  use Source\Controller\ProductController;
+
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
   header('Access-Control-Allow-Methods: POST');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-  include_once "../class/ProductsClass.php";
 
-  //if request is a preflight request return 0
+  //if request is a preflight request end the execution
   if($_SERVER['REQUEST_METHOD'] === 'OPTIONS'){
-    return 0;
+    return;
   }
 
   $statusCode = 200;
@@ -17,23 +20,25 @@
 
    // Get raw posted data
 
-  $_POST = json_decode(file_get_contents("php://input"));
+  $_DATA = json_decode(file_get_contents("php://input"));
 
   try{
-    //instantiate ProductClass
+    //instantiate ProductControllerClass
 
-    $productClass = new ProductsClass(
-      $_POST->sku,
-      $_POST->category_id,
-      $_POST->name,
-      $_POST->price,
-      $_POST->details,
+    $productClass = new ProductController(
+      $_DATA->sku,
+      $_DATA->category_id,
+      $_DATA->name,
+      $_DATA->price,
+      $_DATA->details
       
     );
 
+    $function = 'store'.$productClass->category_id;
+
     //Store Product in the Database
     
-    $productClass->storeProduct();
+    $productClass->$function();
     $message = 'Product Stored succesfully';
     $statusCode = 201;
 

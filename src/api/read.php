@@ -3,8 +3,7 @@
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
-  include_once "../class/ProductsClass.php";
-
+  require_once '../../vendor/autoload.php';
   // initialize return values
   $statusCode = 201;
   $message = '';
@@ -12,7 +11,7 @@
 
   //get Products from database
 
-  $result = ProductsClass::getProducts();
+  $result = Source\Controller\ProductController::getProducts();
 
   // Get row count
   $num = mysqli_num_rows($result);
@@ -49,8 +48,6 @@
   }
 
   //return values
-
-
   echo json_encode(array(
       'status'  => $statusCode,
       'message' => $message,
